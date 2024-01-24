@@ -1,0 +1,9 @@
+{
+  "name": "playground-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ms0130k/playground-js.git",
+  "author": "KimDonghyeon <ms0130k@unvus.com>",
+  "license": "MIT",
+  "type": "module"
+}
