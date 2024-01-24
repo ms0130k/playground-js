@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="outer" style="height: 100px; background-color: aliceblue">
+        <div id="inner" style="height: 50px; background-color: antiquewhite">
+            <button type="button" id="btn">버튼</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('outer').addEventListener('click', e => {
+          console.log('outer bub', e.eventPhase, e.target);
+        });
+        document.getElementById('inner').addEventListener('click', e => {
+          console.log('inner bub', e.eventPhase, e.target);
+        });
+        document.getElementById('btn').addEventListener('click', e => {
+          console.log('btn bub', e.eventPhase, e.target);
+        });
+        document.getElementById('btn').addEventListener('click', e => {
+          console.log('btn bub', e.eventPhase, e.target);
+        }, true);
+        document.getElementById('outer').addEventListener('click', e => {
+          console.log('outer cap', e.eventPhase, e.target);
+        }, true);
+        document.getElementById('inner').addEventListener('click', e => {
+          console.log('inner cap', e.eventPhase, e.target);
+        }, true);
+    </script>
+</body>
+</html>

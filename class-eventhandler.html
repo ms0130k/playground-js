@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button type="button" id="btn">0</button>
+<script>
+  class App {
+    num;
+    $btn;
+
+    constructor(num) {
+      this.num = num;
+      this.$btn = document.getElementById('btn');
+      this.$btn.onclick = this.increase.bind(this);
+    }
+    increase(e) {
+      console.log(e);
+      this.$btn.textContent = ++this.num;
+    }
+    // increase = () => {
+    //   this.$btn.textContent = ++this.num;
+    // }
+  }
+  new App(0);
+</script>
+</body>
+</html>
