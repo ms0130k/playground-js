@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>oh my</title>
+</head>
+<body>
+<div>
+  <div>
+    <div id="start">
+      hello
+      <div class="target">
+
+      </div>
+    </div>
+    <div>
+      <div class="error">
+        error
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  console.log('start');
+  function getTargetFromParentsToChildByClass(el, className) {
+    let target = el;
+    if (target.classList.contains(className)) {
+      return target;
+    }
+    while (true) {
+      if (target.parentElement === null) {
+        break;
+      } else if (target.parentElement.classList.contains(className)) {
+        return target.parentElement;
+      }
+      target = target.parentElement;
+    }
+    return getChildByClass(el, className);
+  }
+
+  function getChildByClass(el, className) {
+    let children = el.children;
+    for (let i = 0; i < children.length; i++) {
+      if (children[i] === undefined) {
+        return null;
+      } else if (children[i].classList.contains(className)) {
+        return children[i];
+      } else {
+        getChildByClass(children[i], className);
+      }
+    }
+  }
+
+  const start = document.getElementById('start');
+  let find = getTargetFromParentsToChildByClass(start, 'error');
+  console.assert(!find);
+  find = getTargetFromParentsToChildByClass(start, 'target');
+  console.assert(!!find);
+  console.log('end');
+</script>
+</body>
+</html>
